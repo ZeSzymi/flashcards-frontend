@@ -1,0 +1,11 @@
+.home {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    justify-content: center;
+
+    .login {
+        display: flex;
+        align-items: center;
+    }
+}

@@ -1,0 +1,16 @@
+<div class="header">
+  <button mat-raised-button>Flashcards</button>
+  <div class="menu">
+    <div class="user button" *ngIf="authService.isLoggedIn()">
+      <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
+      <div>{{authService.user?.username}}</div>
+    </div>
+    <button mat-raised-button color="primary" class="button" (click)="logout()">Logout</button>
+  </div>
+</div>
+<ng-container *ngIf="!authService.isLoggedIn()">
+  <app-home></app-home>
+</ng-container>
+<ng-container *ngIf="authService.isLoggedIn()">
+  <app-card></app-card>
+</ng-container>
