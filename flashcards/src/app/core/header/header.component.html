@@ -8,9 +8,14 @@
     <button mat-raised-button color="primary" class="button" (click)="logout()">Logout</button>
   </div>
 </div>
-<ng-container *ngIf="!authService.isLoggedIn()">
-  <app-home></app-home>
-</ng-container>
-<ng-container *ngIf="authService.isLoggedIn()">
-  <app-card></app-card>
+<ng-container [ngSwitch]="authService.isLoggedIn()">
+  <app-home *ngSwitchCase="false"></app-home>
+  <div class="main" *ngSwitchCase="true">
+    <div class="left">
+      <app-menu></app-menu>
+    </div>
+    <div class="right">
+      <app-card></app-card>
+    </div>
+  </div>
 </ng-container>

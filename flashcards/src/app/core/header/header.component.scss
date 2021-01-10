@@ -22,3 +22,18 @@
         margin-left: 4px;
     }
 }
+
+.main {
+    padding-top: 100px;
+    .left {
+        width: 250px;
+        float: left;
+    }
+    
+    .right {
+        width: calc(100% - 250px);
+        float:left;
+        display: flex;
+        justify-content: center;
+    }
+}

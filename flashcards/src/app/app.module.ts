@@ -1,3 +1,7 @@
+import { CardFormComponent } from './flashcards/card-form/card-form.component';
+import { CardListComponent } from './flashcards/card-list/card-list.component';
+import { MenuComponent } from './flashcards/menu/menu.component';
+import { FlashcardsDataService } from './services/flascards-data.service';
 import { CardComponent } from './flashcards/card/card.component';
 import { HttpService } from './services/http.service';
 import { TokenInterceptor } from './services/interceptor';
@@ -20,6 +24,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -28,7 +35,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    CardComponent
+    CardComponent,
+    MenuComponent,
+    CardListComponent,
+    CardFormComponent
   ],
   imports: [
     FormsModule,
@@ -42,11 +52,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule,
+    MatDividerModule,
+    MatSidenavModule
   ],
   providers: [
     AuthService,
     HttpService,
+    FlashcardsDataService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
