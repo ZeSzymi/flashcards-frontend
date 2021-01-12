@@ -8,7 +8,9 @@ import { CardFormComponent } from './flashcards/card-form/card-form.component';
 const routes: Routes = [
   { path: 'flashcards-frontend/flashcards-frontend/list', component: CardListComponent },
   { path: 'flashcards-frontend/flashcards-frontend/add', component: CardFormComponent },
-  { path: '', redirectTo: 'flashcards-frontend/flashcards-frontend/list', pathMatch: 'full' }
+  { path: '', redirectTo: 'flashcards-frontend/flashcards-frontend/list', pathMatch: 'full' },
+  { path: 'flashcards-frontend/flashcards-frontend', redirectTo: 'flashcards-frontend/flashcards-frontend/list', pathMatch: 'full' },
+  { path: 'flashcards-frontend', redirectTo: 'flashcards-frontend/flashcards-frontend/list', pathMatch: 'full' }
 ];
 
 @NgModule({
