@@ -6,9 +6,9 @@ import { CardListComponent } from './flashcards/card-list/card-list.component';
 import { CardFormComponent } from './flashcards/card-form/card-form.component';
 
 const routes: Routes = [
-  { path: 'list', component: CardListComponent },
-  { path: 'add', component: CardFormComponent },
-  { path: '', redirectTo: '/list', pathMatch: 'full' }
+  { path: 'flashcards-frontend/flashcards-frontend/list', component: CardListComponent },
+  { path: 'flashcards-frontend/flashcards-frontend/add', component: CardFormComponent },
+  { path: '', redirectTo: 'flashcards-frontend/flashcards-frontend/list', pathMatch: 'full' }
 ];
 
 @NgModule({
