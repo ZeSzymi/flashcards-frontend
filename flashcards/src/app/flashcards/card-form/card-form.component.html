@@ -1,21 +1,28 @@
-<mat-form-field class="example-full-width">
-  <mat-label>Question</mat-label>
-  <input matInput [(ngModel)]="question" placeholder="question" type="text">
-</mat-form-field>
+<mat-card>
+  <mat-card-content>
+    <div class="card-container">
+      <mat-form-field class="full-width">
+        <mat-label>Question</mat-label>
+        <input matInput [(ngModel)]="question" placeholder="question" type="text">
+      </mat-form-field>
 
-<div>
-  <mat-form-field class="example-full-width">
-    <mat-label>Answer</mat-label>
-    <input matInput [(ngModel)]="answer" placeholder="answer" type="text">
-  </mat-form-field>
-  <button mat-raised-button color="primary" class="button" (click)="addAnswer()">Add answer</button>
-</div>
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Answer</mat-label>
+          <input matInput [(ngModel)]="answer" placeholder="answer" type="text">
+        </mat-form-field>
+      </div>
 
-
-<mat-selection-list #shoes [(ngModel)]="selectedAnswers">
-  <mat-list-option *ngFor="let answer of answers" [value]="answer">
-    {{answer}}
-  </mat-list-option>
-</mat-selection-list>
-
-<button mat-raised-button color="primary" (click)="save()" class="button">Save</button>
+      <mat-selection-list class="answer" #list [(ngModel)]="selectedAnswers">
+        <mat-list-option *ngFor="let answer of answers" [value]="answer">
+          {{answer}}
+        </mat-list-option>
+      </mat-selection-list>
+      
+      <div class="btn-container">
+        <button mat-raised-button color="primary" class="button " (click)="addAnswer()">Add answer</button>
+        <button mat-raised-button color="primary" (click)="save()" class="button form-btn">Save</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

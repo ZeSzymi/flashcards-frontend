@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
@@ -10,7 +11,11 @@ export class FlashcardsDataService extends HttpService {
         super(client);
     }
 
-    GetFlashcards() {
-        return this.get('/flashcards');
+    getFlashcards() {
+        return this.get('flashcards');
+    }
+
+    addFlashcard(flashcard) {
+        return this.post('flashcards', flashcard);
     }
 }

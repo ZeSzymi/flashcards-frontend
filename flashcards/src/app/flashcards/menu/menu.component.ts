@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  options = [ { name: 'FLASHCARD.ADD', type: "add"} , { name: 'FLASHCARD.LIST', type: "add"} ];
+  options = [ { name: 'FLASHCARD.ADD', type: "add"} , { name: 'FLASHCARD.LIST', type: "list"} ];
 
   constructor(private _router: Router, private _route: ActivatedRoute) { }
 
@@ -16,7 +16,8 @@ export class MenuComponent implements OnInit {
   }
 
   changeOption(option) {
-    this._router.navigate(option.type, { relativeTo: this._route})
+    console.log(option)
+    this._router.navigate([option.type], { relativeTo: this._route});
   }
 
 }

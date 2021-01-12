@@ -11,7 +11,6 @@ import jwt_decode from "jwt-decode";
 })
 export class AuthService extends HttpService {
 
-    url = 'http://localhost:53707'
 
     constructor(http: HttpClient) {
         super(http);
@@ -25,7 +24,7 @@ export class AuthService extends HttpService {
     }
 
     register(username: string, email: string, password: string) {
-        return this.http.post(`${this.url}/api/identity/register`, { username, email, password });
+        return this.post(`identity/register`, { username, email, password });
     }
 
     getToken(): string {
@@ -33,7 +32,7 @@ export class AuthService extends HttpService {
     }
 
     login(username:string, password:string) {
-        return this.post('/api/identity/login', {username, password}).pipe(
+        return this.post('identity/login', {username, password}).pipe(
             tap((res: any) => this.setSession(res.token)),
             shareReplay()
         )

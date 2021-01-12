@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-content>
     <mat-selection-list #shoes [multiple]="false">
-      <mat-list-option *ngFor="let option of options; let i = index" [value]="option" (click)="changeOption($event)">
+      <mat-list-option *ngFor="let option of options; let i = index" [value]="option" (click)="changeOption(option)">
         {{option.name}}
         <mat-divider *ngIf='i !== (options.length - 1)'></mat-divider>
       </mat-list-option>

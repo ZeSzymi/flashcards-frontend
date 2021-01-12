@@ -1,0 +1,28 @@
+.table {
+    width: 500px;
+}
+
+.cards-container {
+    display: flex;
+    max-width: 800px;
+    flex-wrap: wrap;
+}
+.card {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    min-width: 200px;
+}
+
+
+.form-btn {
+    float:right;
+    margin-right: 10px;
+}
+
+.correct {
+    background-color: rgb(130, 221, 130);
+}
+
+.wrong {
+    background-color: rgb(221, 130, 201);
+}
