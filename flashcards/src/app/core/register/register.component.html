@@ -1,17 +1,17 @@
 <form [formGroup]='group' class="register-form">
   <mat-form-field class="example-full-width">
-    <mat-label>login</mat-label>
+    <mat-label>{{'IDENTITY.LOGIN' | translate}}</mat-label>
     <input matInput placeholder="login" formControlName='login' type="text" >
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <mat-label>email</mat-label>
+    <mat-label>{{'IDENTITY.EMAIL' | translate}}</mat-label>
     <input matInput placeholder="email" formControlName='email' type="text" >
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <mat-label>password</mat-label>
+    <mat-label>{{'IDENTITY.PASSWORD' | translate}}</mat-label>
     <input matInput placeholder="password" formControlName='password' type="password" >
   </mat-form-field>
-  <button mat-raised-button color="primary" class="button" (click)="register()">Register</button>
+  <button mat-raised-button color="primary" class="button" (click)="register()">{{'IDENTITY.REGISTER' | translate}}</button>
 </form>
 
 

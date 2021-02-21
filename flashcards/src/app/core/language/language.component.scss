@@ -1,0 +1,29 @@
+.flag-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flag-pl {
+    width: 16px;
+    height: 10px;
+    border: 2px solid rgb(230, 230, 230);
+    cursor:pointer;
+    // background-color: brown;
+    // background: url('/assets/img/pl.png');
+    // background-repeat: no-repeat;
+    // background-size: auto;
+}
+
+.flag-en {
+    width: 16px;
+    height: 10px;
+    // background-color: brown;
+    // background: url('/assets/img/en.png');
+    // background-repeat: no-repeat;
+    // background-size: auto;
+}
+
+.picked {
+    border: 2px solid black;
+}

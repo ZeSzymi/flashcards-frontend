@@ -1,3 +1,4 @@
+import { LanguageComponent } from './core/language/language.component';
 import { RolesEditComponent } from './identity/components/roles-edit/roles-edit.component';
 import { CardFormComponent } from './flashcards/card-form/card-form.component';
 import { CardListComponent } from './flashcards/card-list/card-list.component';
@@ -24,7 +25,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -32,6 +33,13 @@ import { RolesComponent } from './identity/components/roles/roles.component'
 import { AdminComponent } from './identity/components/admin/admin.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from 'src/environments/environment';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, `${environment.backendUrl}translations/`, '');
+}
 
 @NgModule({
   declarations: [
@@ -46,10 +54,19 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CardFormComponent,
     RolesComponent,
     AdminComponent,
-    RolesEditComponent
+    RolesEditComponent,
+    LanguageComponent
   ],
   imports: [
     FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      defaultLanguage: 'en'
+    }),
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCardModule,

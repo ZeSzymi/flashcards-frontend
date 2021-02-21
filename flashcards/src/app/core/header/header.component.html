@@ -1,11 +1,12 @@
 <div class="header">
-  <button mat-raised-button>Flashcards</button>
+  <button mat-raised-button>{{'FLASHCARDS.FLASHCARDS' | translate}}</button>
+  <app-language></app-language>
   <div class="menu">
     <div class="user button" *ngIf="authService.isLoggedIn()">
       <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
       <div>{{authService.user?.username}}</div>
     </div>
-    <button mat-raised-button color="primary" class="button" (click)="logout()">Logout</button>
+    <button mat-raised-button color="primary" class="button" (click)="logout()">{{'IDENTITY.LOGOUT' | translate}}</button>
   </div>
 </div>
 <ng-container [ngSwitch]="authService.isLoggedIn()">
