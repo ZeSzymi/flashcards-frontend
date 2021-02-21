@@ -1,0 +1,16 @@
+.table {
+    width: 100%;
+}
+
+.row {
+    cursor: pointer;
+}
+
+.row:hover {
+    background-color: rgba(172, 172, 172, 0.315);
+}
+
+.button {
+    float: right;
+    margin-top: 10px;
+}

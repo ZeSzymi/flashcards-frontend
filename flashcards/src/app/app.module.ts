@@ -1,3 +1,4 @@
+import { RolesEditComponent } from './identity/components/roles-edit/roles-edit.component';
 import { CardFormComponent } from './flashcards/card-form/card-form.component';
 import { CardListComponent } from './flashcards/card-list/card-list.component';
 import { MenuComponent } from './flashcards/menu/menu.component';
@@ -27,6 +28,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { RolesComponent } from './identity/components/roles/roles.component'
+import { AdminComponent } from './identity/components/admin/admin.component'
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     CardComponent,
     MenuComponent,
     CardListComponent,
-    CardFormComponent
+    CardFormComponent,
+    RolesComponent,
+    AdminComponent,
+    RolesEditComponent
   ],
   imports: [
     FormsModule,
@@ -55,7 +63,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatTableModule,
     MatListModule,
     MatDividerModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDialogModule,
+    NgSelectModule
   ],
   providers: [
     AuthService,

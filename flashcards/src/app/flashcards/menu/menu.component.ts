@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  options = [ { name: 'FLASHCARD.ADD', type: "add"} , { name: 'FLASHCARD.LIST', type: "list"} ];
+  options = [ { name: 'FLASHCARD.ADD', type: "flashcards-frontend/add"} , { name: 'FLASHCARD.LIST', type: "flashcards-frontend/list"}, { name: 'FLASHCARD.ADMIN' , type: "flashcards-frontend/admin" } ];
 
   constructor(private _router: Router, private _route: ActivatedRoute) { }
 

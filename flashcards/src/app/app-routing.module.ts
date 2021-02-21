@@ -1,16 +1,14 @@
-import { HomeComponent } from './core/home/home.component';
-import { RegisterComponent } from './core/register/register.component';
+import { AdminComponent } from './identity/components/admin/admin.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CardListComponent } from './flashcards/card-list/card-list.component';
 import { CardFormComponent } from './flashcards/card-form/card-form.component';
 
 const routes: Routes = [
-  { path: 'flashcards-frontend/flashcards-frontend/list', component: CardListComponent },
-  { path: 'flashcards-frontend/flashcards-frontend/add', component: CardFormComponent },
-  { path: '', redirectTo: 'flashcards-frontend/flashcards-frontend/list', pathMatch: 'full' },
-  { path: 'flashcards-frontend/flashcards-frontend', redirectTo: 'flashcards-frontend/flashcards-frontend/list', pathMatch: 'full' },
-  { path: 'flashcards-frontend', redirectTo: 'flashcards-frontend/flashcards-frontend/list', pathMatch: 'full' }
+  { path: 'flashcards-frontend/list', component: CardListComponent },
+  { path: 'flashcards-frontend/add', component: CardFormComponent },
+  { path: 'flashcards-frontend/admin', component: AdminComponent },
+  { path: '', redirectTo: 'flashcards-frontend/list', pathMatch: 'full' }
 ];
 
 @NgModule({

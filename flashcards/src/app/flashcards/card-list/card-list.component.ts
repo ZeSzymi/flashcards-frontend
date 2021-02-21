@@ -32,7 +32,7 @@ export class CardListComponent implements OnInit {
   }
 
   refresh() {
-    this._flashcardsService.getFlashcards().subscribe(data => {
+    this._flashcardsService.getFlashcards().subscribe((data: any) => {
       this.flashcards = data;
     })
   }
