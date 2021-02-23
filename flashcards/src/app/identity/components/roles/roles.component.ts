@@ -1,3 +1,5 @@
+import { TranslateService } from '@ngx-translate/core';
+import { NotifierService } from 'angular-notifier';
 import { Role } from './../../../models/roles.model';
 import { RolesDataService } from './../../services/roles-data.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -17,29 +19,33 @@ export class RolesComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['name', 'claimsAmount'];
+  displayedColumns: string[] = ['name', 'claims'];
 
   roles: Role[];
 
   ngOnInit() {
-    this.rolesService.getRoles().subscribe((roles:Role[]) => {
-      this.roles = roles;
-      this.dataSource = new MatTableDataSource(this.roles.map(role => ({
-        name: role.name,
-        claimsAmount: role.claims.length,
-        role: role
-      })));
-      this.dataSource.sort = this.sort;
-    });
+    this.refresh();
   }
 
   openDialog(role: Role) {
-    const dialogRef = this.dialog.open(RolesEditComponent, { 
+    const dialogRef = this.dialog.open(RolesEditComponent, {
       data: role
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.refresh();
+    });
+  }
+
+  refresh() {
+    this.rolesService.getRoles().subscribe((roles:Role[]) => {
+      this.roles = roles;
+      this.dataSource = new MatTableDataSource(this.roles.map(role => ({
+        name: role.name,
+        claims: role.claims,
+        role: role
+      })));
+      this.dataSource.sort = this.sort;
     });
   }
 

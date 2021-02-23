@@ -1,0 +1,24 @@
+<table mat-table matSort [dataSource]="dataSource" class="table">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"IDENTITY.NAME" | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"IDENTITY.EMAIL"  | translate}} </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="roles">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> {{"IDENTITY.ROLES"  | translate}} </th>
+    <td mat-cell *matCellDef="let element">
+      <ul>
+        <li *ngFor="let role of element.roles">{{role.name}}</li>
+      </ul>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="row"></tr>
+</table>

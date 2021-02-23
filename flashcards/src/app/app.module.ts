@@ -1,3 +1,5 @@
+import { PrivilegesComponent } from './identity/components/privileges/privileges.component';
+import { UsersComponent } from './identity/components/users/users.component';
 import { HttpErrorInterceptor } from './services/errors-interceptor';
 import { LanguageComponent } from './core/language/language.component';
 import { RolesEditComponent } from './identity/components/roles-edit/roles-edit.component';
@@ -56,7 +58,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     RolesComponent,
     AdminComponent,
     RolesEditComponent,
-    LanguageComponent
+    LanguageComponent,
+    UsersComponent,
+    PrivilegesComponent
   ],
   imports: [
     FormsModule,
