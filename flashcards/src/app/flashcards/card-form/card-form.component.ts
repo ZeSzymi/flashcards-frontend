@@ -1,3 +1,5 @@
+import { TranslateService } from '@ngx-translate/core';
+import { NotifierService } from 'angular-notifier';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { FlashcardsDataService } from 'src/app/services/flascards-data.service';
@@ -14,12 +16,18 @@ export class CardFormComponent implements OnInit {
   answers: string[] = [];
   selectedAnswers: string[] = [];
 
-  constructor(private _flashcardsService: FlashcardsDataService) {
+  constructor(private _flashcardsService: FlashcardsDataService, private _notifyService: NotifierService, private _translateService: TranslateService) {
     
   }
 
   ngOnInit() {
 
+  }
+
+  reset() {
+    this.answer = '';
+    this.answers = [];
+    this.question = '';
   }
 
   save() {
@@ -32,7 +40,8 @@ export class CardFormComponent implements OnInit {
     };
 
     if (flashcard.question != null && flashcard.question !== '' && flashcard.answers.length > 0) {
-        this._flashcardsService.addFlashcard(flashcard).subscribe();
+        this._flashcardsService.addFlashcard(flashcard)
+          .subscribe(() => { this._notifyService.notify('success', this._translateService.instant('FLASHCARD.ADD_SUCCESS')); this.reset()});
     }
     
     console.log(flashcard);

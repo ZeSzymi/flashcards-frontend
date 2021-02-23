@@ -1,3 +1,4 @@
+import { HttpErrorInterceptor } from './services/errors-interceptor';
 import { LanguageComponent } from './core/language/language.component';
 import { RolesEditComponent } from './identity/components/roles-edit/roles-edit.component';
 import { CardFormComponent } from './flashcards/card-form/card-form.component';
@@ -15,7 +16,6 @@ import { HeaderComponent } from './core/header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -36,6 +36,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
+import { NotifierModule } from "angular-notifier";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, `${environment.backendUrl}translations/`, '');
@@ -82,7 +83,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatDividerModule,
     MatSidenavModule,
     MatDialogModule,
-    NgSelectModule
+    NgSelectModule,
+    NotifierModule
   ],
   providers: [
     AuthService,
@@ -92,7 +94,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

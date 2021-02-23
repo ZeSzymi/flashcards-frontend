@@ -2,13 +2,13 @@
   <mat-card-content>
     <div class="card-container">
       <mat-form-field class="full-width">
-        <mat-label>Question</mat-label>
+        <mat-label>{{'FLASHCARDS.QUESTION' | translate}}</mat-label>
         <input matInput [(ngModel)]="question" placeholder="question" type="text">
       </mat-form-field>
 
       <div>
         <mat-form-field class="full-width">
-          <mat-label>Answer</mat-label>
+          <mat-label>{{'FLASHCARDS.ANSWER_WORD' | translate}}</mat-label>
           <input matInput [(ngModel)]="answer" placeholder="answer" type="text">
         </mat-form-field>
       </div>
@@ -20,8 +20,8 @@
       </mat-selection-list>
       
       <div class="btn-container">
-        <button mat-raised-button color="primary" class="button " (click)="addAnswer()">Add answer</button>
-        <button mat-raised-button color="primary" (click)="save()" class="button form-btn">Save</button>
+        <button mat-raised-button color="primary" class="button " (click)="addAnswer()">{{'FLASHCARDS.ADD_ANSWER' | translate}}</button>
+        <button mat-raised-button color="primary" (click)="save()" class="button form-btn">{{'COMMONS.SAVE' | translate}}</button>
       </div>
     </div>
   </mat-card-content>
