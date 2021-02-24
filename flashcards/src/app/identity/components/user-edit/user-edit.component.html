@@ -1,12 +1,12 @@
-<form [formGroup]='group' class="role-form">
-  <mat-form-field class="form-field">
-    <mat-label>{{"IDENTITY.ROLE_NAME" | translate}}</mat-label>
-    <input matInput placeholder="Role Name" formControlName='name' type="text">
-  </mat-form-field>
-  <mat-label>{{"IDENTITY.PRIVILEGES" | translate}}</mat-label>
-  <ng-select [multiple]="true"  bindValue="id" [closeOnSelect]="false" formControlName='claimIds'>
-    <ng-option *ngFor="let claim of claims" [value]="claim.id" [disabled]="claim.disabled">{{claim.claimValue}}
-    </ng-option>
-  </ng-select>
-  <button mat-raised-button color="primary" class="button" (click)="addRole()">{{"COMMONS.SAVE" | translate}}</button>
-</form>
+<div class="container">
+  <div>
+    <form [formGroup]='group' class="role-form">
+      <h1>{{user.username}}</h1>
+      <div formArrayName='roles' *ngFor="let control of rolesControlArray.controls; let i = index">
+        <mat-checkbox class="example-margin" [formControl]="control">{{roles[i].name}}</mat-checkbox>
+      </div>
+    </form>
+    <button mat-raised-button color="primary" class="button" (click)="changeUserRoles()">{{"COMMONS.SAVE" |
+      translate}}</button>
+  </div>
+</div>

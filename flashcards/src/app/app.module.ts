@@ -1,3 +1,4 @@
+import { UserEditComponent } from './identity/components/user-edit/user-edit.component';
 import { PrivilegesComponent } from './identity/components/privileges/privileges.component';
 import { UsersComponent } from './identity/components/users/users.component';
 import { HttpErrorInterceptor } from './services/errors-interceptor';
@@ -39,6 +40,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
 import { NotifierModule } from "angular-notifier";
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, `${environment.backendUrl}translations/`, '');
@@ -60,7 +62,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RolesEditComponent,
     LanguageComponent,
     UsersComponent,
-    PrivilegesComponent
+    PrivilegesComponent,
+    UserEditComponent
   ],
   imports: [
     FormsModule,
@@ -88,7 +91,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSidenavModule,
     MatDialogModule,
     NgSelectModule,
-    NotifierModule
+    NotifierModule,
+    MatCheckboxModule
   ],
   providers: [
     AuthService,

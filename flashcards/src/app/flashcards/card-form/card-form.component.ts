@@ -17,7 +17,7 @@ export class CardFormComponent implements OnInit {
   selectedAnswers: string[] = [];
 
   constructor(private _flashcardsService: FlashcardsDataService, private _notifyService: NotifierService, private _translateService: TranslateService) {
-    
+
   }
 
   ngOnInit() {
@@ -41,16 +41,18 @@ export class CardFormComponent implements OnInit {
 
     if (flashcard.question != null && flashcard.question !== '' && flashcard.answers.length > 0) {
         this._flashcardsService.addFlashcard(flashcard)
-          .subscribe(() => { this._notifyService.notify('success', this._translateService.instant('FLASHCARD.ADD_SUCCESS')); this.reset()});
+          .subscribe(() => { this._notifyService.notify('success', this._translateService.instant('FLASHCARDS.ADD_SUCCESS')); this.reset()});
+    } else {
+      this._notifyService.notify('error', this._translateService.instant('FLASHCARDS.QUESTION_ANSWER_NOT_NULL'))
     }
-    
-    console.log(flashcard);
   }
 
   addAnswer() {
     if (this.answer != null && this.answer !== '') {
       this.answers.push(this.answer);
       this.answer = '';
+    } else {
+      this._notifyService.notify('error', this._translateService.instant('FLASHCARDS.ANSWER_NOT_NULL'))
     }
   }
 

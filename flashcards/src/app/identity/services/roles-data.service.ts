@@ -18,4 +18,8 @@ export class RolesDataService extends HttpService {
     return this.post('roles/role-with-claims', role)
   }
 
+  getRolesForUser(userId: string) {
+    return this.get(`roles/users/${userId}`)
+  }
+
 }

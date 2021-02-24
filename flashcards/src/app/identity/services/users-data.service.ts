@@ -10,4 +10,8 @@ export class UsersDataService extends HttpService {
     return this.get('users');
   }
 
+  addRolesToUser(userWithRoles) {
+    return this.post('users/roles', userWithRoles)
+  }
+
 }
