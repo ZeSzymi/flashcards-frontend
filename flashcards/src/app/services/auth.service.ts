@@ -45,12 +45,11 @@ export class AuthService extends HttpService {
         localStorage.setItem("expires_at", JSON.stringify(this._expiration.valueOf()));
         this.isLoggedIn();
     }
-    
+
     private decode(token) {
         const decoded = <any>jwt_decode(token)
-        const { id, displayName, privileges, username, email, exp } = decoded
-        console.log(displayName);
-        this._user = new User(id as any, displayName, username, email, privileges);
+        const { id, displayName, Privilege, username, email, exp } = decoded
+        this._user = new User(id as any, displayName, username, email, Privilege);
         return decoded;
     }
 
@@ -81,7 +80,11 @@ export class AuthService extends HttpService {
             const expiresAt = JSON.parse(expiration);
             this._expiration = moment(expiresAt);
         }
-        
+
         return this._expiration;
-    }    
+    }
+
+    containsPrivilege(privilege: string) {
+      return this._user?.privileges?.includes(privilege);
+    }
 }

@@ -18,4 +18,8 @@ export class FlashcardsDataService extends HttpService {
     addFlashcard(flashcard) {
         return this.post('flashcards', flashcard);
     }
+
+    removeFlashcard(flashcardId) {
+      return this.delete(`flashcards/${flashcardId}`)
+    }
 }

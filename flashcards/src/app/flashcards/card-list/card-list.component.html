@@ -17,7 +17,10 @@
   <mat-card class="card" *ngFor="let flashcard of flashcards">
     <mat-card-content class="card-content">
       <mat-card-header>
-        <mat-card-title>{{flashcard.question}}</mat-card-title>
+        <mat-card-title>
+          {{flashcard.question}}
+          <div style="position: absolute; top: 5px; right: 5px; cursor: pointer;" (click)='remove(flashcard)'> x </div>
+        </mat-card-title>
       </mat-card-header>
       <mat-card-content >
         <mat-selection-list class="answer" #list [(ngModel)]="flashcard.selectedAnswers">

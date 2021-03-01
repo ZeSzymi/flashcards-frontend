@@ -1,3 +1,5 @@
+import { TranslateService } from '@ngx-translate/core';
+import { NotifierService } from 'angular-notifier';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,8 +14,8 @@ export class CardListComponent implements OnInit {
 
   flashcards: any[];
 
-  constructor(private _flashcardsService: FlashcardsDataService) {
-    
+  constructor(private _flashcardsService: FlashcardsDataService, private _notifierService: NotifierService, private _translateService: TranslateService) {
+
   }
 
   ngOnInit() {
@@ -34,6 +36,13 @@ export class CardListComponent implements OnInit {
   refresh() {
     this._flashcardsService.getFlashcards().subscribe((data: any) => {
       this.flashcards = data;
+    })
+  }
+
+  remove(flashcard) {
+    this._flashcardsService.removeFlashcard(flashcard.id).subscribe((data: any) => {
+      this._notifierService.notify('success', this._translateService.instant('FLASHCARDS.REMOVED_SUCCESS'))
+      this.refresh();
     })
   }
 

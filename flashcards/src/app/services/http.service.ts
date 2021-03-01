@@ -10,8 +10,8 @@ export class HttpService {
         return this.http.post(`${environment.backendUrl}${url}`, body);
     }
 
-    protected delete(url: string, body:any, queryParams?: any) {
-        return this.http.delete(`${environment.backendUrl}${url}`, body);
+    protected delete(url: string, queryParams?: any) {
+        return this.http.delete(`${environment.backendUrl}${url}`);
     }
 
     protected put(url: string, body:any, queryParams?: any) {
